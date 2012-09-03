@@ -1,6 +1,30 @@
 <h1> Admin Dashboard </h1>
-<% @work_request.each do |wr| %>
 
-<p> <%= wr.name %> </p>
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<th>Name<th>
+		<th>Phone<th>
+		<th>Address<th>
+		<th>&nbsp;<th>
+		<th>&nbsp;<th>
+	</tr>
+
+
+
+
+<% @work_requests.each do |wr| %>
+
+	<tr>
+		<td><%= wr.name %></td>
+		<td><%= wr.phone %></td>
+		<td><%= wr.address %></td>
+		<td><%= link_to('edit', [:admin, wr]) %></td>
+		<td><%= link_to('delete', [:admin, wr], :method => :delete, :confirm => "Are you sure?") %></td>
+		
+	</tr>
+
+
 
 <% end %>
+
+</table>

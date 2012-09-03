@@ -5,6 +5,9 @@ class WorkRequestsController < ApplicationController
 	@work_request = WorkRequest.new(params[:work_request])
 	
 		if @work_request.save
+			#send email to worker
+			Ticket.notification(@work_request).deliver
+			
 			#good job
 			flash[:success] = "Your Work Request has been submitted."
 			redirect_to(root_path)

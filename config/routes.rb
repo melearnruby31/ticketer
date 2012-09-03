@@ -7,6 +7,7 @@ resources :work_requests
  
 namespace :admin do
 	match '/' => 'dashboard#index'
+	resources :work_requests
 end 
 
 
